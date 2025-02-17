@@ -1,15 +1,15 @@
 import model.Task;
+import model.TaskControll;
 import model.TaskModel;
 
 public class App {
     public static void main(String[] args) {
         try {
-            Task newTask = new Task("Codar ate Morrer", "Todo");
+            // TaskController a = new TaskController();
 
-            // System.out.println(newTask);
+            TaskControll a = new TaskControll();
 
-            // TaskModel.add(newTask);
-            TaskModel.update(279475577, "description", "done");
+            a.menu();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

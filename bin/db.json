@@ -1,16 +1,15 @@
 [
     {
-        "id": 322123348,
-        "description": "Codar ate Morrer",
-        "status": "done",
-        "createdAt": "2025-02-17T22:12:54.795156",
-        "updatedAt": "2025-02-17T22:29:54.313280300"
+        "id": 641517852,
+        "description": "anaximandro",
+        "createdAt": "2025-02-17T23:29:18.760939100",
+        "updatedAt": "2025-02-17T23:49:17.169706500"
     },
     {
-        "id": 279475577,
-        "description": "done",
-        "status": "done",
-        "createdAt": "2025-02-17T22:13:07.292794300",
-        "updatedAt": "2025-02-17T22:31:27.571338500"
+        "id": 364793086,
+        "description": "Paisagem",
+        "status": "todo",
+        "createdAt": "2025-02-17T23:30:11.669004900",
+        "updatedAt": "2025-02-17T23:52:17.385731300"
     }
 ]

@@ -87,6 +87,7 @@ public class TaskModel {
         }
 
         save(tasks);
+        System.out.println("Updating tasks");
     }
 
     public static void delete(int id) throws JsonIOException, IOException {
@@ -100,6 +101,6 @@ public class TaskModel {
             }
         }
 
-        System.out.println("Deleted successfully!!!! ");
+        System.out.println("Deleting tasks!!!! ");
     }
 }
