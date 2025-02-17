@@ -11,25 +11,44 @@ public class TaskControll {
     public void menu() throws JsonIOException, IOException {
         String commandLine = scan.nextLine();
 
-        if (commandLine.trim().indexOf("task-cli") != 0) {
-            System.out.println("'" + commandLine + "' Não existe em Task-cli");
-            return;
-        }
-
         String[] args = commandLine.split(" ");
 
         if (args.length < 2)
             return;
 
-        if (args[1].equals("add") && args.length > 2 && args[2].trim().length() > 2) {
-            String description = args[2];
-            TaskModel.add(new Task(description, "todo"));
+        String task_cli = args[0];
+        String method = args[1];
+
+        if (!task_cli.equals("task-cli")) {
+            System.out.println("'" + commandLine + "' Não existe em Task-cli");
+            return;
         }
 
-        if (args[1].equals("update") && args.length > 3 && args[3].trim().length() > 2) {
+        if (method.equals("add")) {
+            String value = args[2].trim();
+
+            if (value.length() > 2)
+                TaskModel.add(new Task(value, "todo"));
+
+        } else if (method.equals("delete")) {
             int id = Integer.parseInt(args[2]);
-            String value = args[3];
-            TaskModel.update(id, "description", value);
+            TaskModel.delete(id);
+
+        } else if (method.equals("update")) {
+            int id = Integer.parseInt(args[2]);
+            String value = args[3].trim();
+
+            if (value.length() > 2)
+                TaskModel.update(id, "description", value);
+
+        } else if (method.equals("mark-in-progress") || method.equals("mark-done")) {
+            int id = Integer.parseInt(args[2]);
+            String value = method.equals("mark-in-progress") ? "In-progress" : "done";
+
+            if (value.length() > 2)
+                TaskModel.update(id, "status", value);
         }
+
     }
+
 }

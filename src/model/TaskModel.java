@@ -82,12 +82,12 @@ public class TaskModel {
                     taskToUpdate.setDescription(value);
 
                 taskToUpdate.setUpdatedAt(LocalDateTime.now().toString());
-                break;
+                save(tasks);
+                System.out.println("Updating tasks");
+                return;
             }
         }
-
-        save(tasks);
-        System.out.println("Updating tasks");
+        System.out.println("Id Task does not exist, please try again!");
     }
 
     public static void delete(int id) throws JsonIOException, IOException {
@@ -97,10 +97,10 @@ public class TaskModel {
             if (tasks.get(i).getId() == id) {
                 tasks.remove(i);
                 save(tasks);
-                break;
+                System.out.println("Deleting tasks!!!! ");
+                return;
             }
         }
-
-        System.out.println("Deleting tasks!!!! ");
+        System.out.println("Id Task does not exist, please try again!");
     }
 }
