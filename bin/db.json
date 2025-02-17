@@ -2,15 +2,15 @@
     {
         "id": 322123348,
         "description": "Codar ate Morrer",
-        "status": "Todo",
+        "status": "done",
         "createdAt": "2025-02-17T22:12:54.795156",
-        "updatedAt": "2025-02-17T22:12:54.795156"
+        "updatedAt": "2025-02-17T22:29:54.313280300"
     },
     {
         "id": 279475577,
-        "description": "Codar ate Morrer",
-        "status": "Todo",
+        "description": "done",
+        "status": "done",
         "createdAt": "2025-02-17T22:13:07.292794300",
-        "updatedAt": "2025-02-17T22:13:07.292794300"
+        "updatedAt": "2025-02-17T22:31:27.571338500"
     }
 ]

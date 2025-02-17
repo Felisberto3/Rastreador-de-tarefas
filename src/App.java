@@ -8,7 +8,8 @@ public class App {
 
             // System.out.println(newTask);
 
-            TaskModel.add(newTask);
+            // TaskModel.add(newTask);
+            TaskModel.update(279475577, "description", "done");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

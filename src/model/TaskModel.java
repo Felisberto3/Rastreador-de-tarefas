@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -65,5 +66,40 @@ public class TaskModel {
         tasks.add(newTask);
         save(tasks);
         System.out.println("Task added successfully (ID: " + newTask.getId() + ")");
+    }
+
+    public static void update(int id, String field, String value) throws JsonIOException, IOException {
+        List<Task> tasks = allTasks();
+
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getId() == id) {
+                Task taskToUpdate = tasks.get(i);
+
+                if (field.equals("status"))
+                    taskToUpdate.setStatus(value);
+
+                if (field.equals("description"))
+                    taskToUpdate.setDescription(value);
+
+                taskToUpdate.setUpdatedAt(LocalDateTime.now().toString());
+                break;
+            }
+        }
+
+        save(tasks);
+    }
+
+    public static void delete(int id) throws JsonIOException, IOException {
+        List<Task> tasks = allTasks();
+
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getId() == id) {
+                tasks.remove(i);
+                save(tasks);
+                break;
+            }
+        }
+
+        System.out.println("Deleted successfully!!!! ");
     }
 }
