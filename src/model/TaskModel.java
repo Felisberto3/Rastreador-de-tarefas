@@ -1,6 +1,7 @@
 package model;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,23 +10,36 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.ietf.jgss.GSSException;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonParseException;
 
 public class TaskModel {
     private static Gson gson = new Gson();
-    private static Path path = Paths.get("").toAbsolutePath().resolve("./src/db.json");
+    private static Path path = Paths.get("").toAbsolutePath().resolve("src/db.json");
 
-    static private void create() throws IOException {
+    private static void create() throws IOException {
         if (!Files.exists(path)) {
             Files.createFile(path);
         }
     }
 
-    static public List<Task> allTasks() throws IOException, JsonIOException {
+    private static boolean save(List<Task> tasks) throws JsonIOException, IOException {
+        create();
+
+        try (FileWriter writer = new FileWriter(path.toString())) {
+            gson.toJson(tasks, writer);
+            return true;
+        } catch (JsonIOException e) {
+            System.out.println(e.getMessage());
+            throw new JsonIOException("Erro ao escrever as tasks no db ");
+        } catch (IOException e) {
+            throw new JsonIOException("Erro escrever no arquivo  " + path);
+        }
+
+    }
+
+    public static List<Task> allTasks() throws IOException, JsonIOException {
         create();
         ArrayList<Task> tasksList = new ArrayList<>();
 
@@ -46,4 +60,10 @@ public class TaskModel {
         }
     }
 
+    public static void add(Task newTask) throws JsonIOException, IOException {
+        List<Task> tasks = allTasks();
+        tasks.add(newTask);
+        save(tasks);
+        System.out.println("Task added successfully (ID: " + newTask.getId() + ")");
+    }
 }
