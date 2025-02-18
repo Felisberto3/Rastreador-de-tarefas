@@ -18,7 +18,7 @@ O aplicativo deve ser executado a partir da linha de comando, aceitar ações e 
 
 - `Java`: Programing Language 
 - `Gson`: Help us to work with Json at Java
-- 
+  
 ## Folder Structure
 
 - `src`: the folder to maintain sources
