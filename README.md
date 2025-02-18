@@ -7,6 +7,14 @@ O Task tracker é um projeto usado para rastrear e gerenciar suas tarefas. Nesta
 ## URL
 https://roadmap.sh/projects/task-tracker
 
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Felisberto3/Rastreador-de-tarefas
+   cd Rastreador-de-tarefas
+
 ## Requisitos
 O aplicativo deve ser executado a partir da linha de comando, aceitar ações e entradas do usuário como argumentos e armazenar as tarefas em um arquivo JSON. O usuário deve e capaz de:
 
