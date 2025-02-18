@@ -15,6 +15,11 @@ https://roadmap.sh/projects/task-tracker
    git clone https://github.com/Felisberto3/Rastreador-de-tarefas
    cd Rastreador-de-tarefas
 
+Run the application:
+
+ ```bash
+   java TaskCLIApp <command> [arguments]
+```
 ## Requisitos
 O aplicativo deve ser executado a partir da linha de comando, aceitar ações e entradas do usuário como argumentos e armazenar as tarefas em um arquivo JSON. O usuário deve e capaz de:
 
